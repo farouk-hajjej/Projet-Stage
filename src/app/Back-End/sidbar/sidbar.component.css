@@ -1,0 +1,7 @@
+.logo{
+  background:url('../../../assets/front/img/logo/logo.png')  no-repeat;
+  display: block;
+  height:75px;width:300px;
+  margin-right: auto;
+  margin-left: initial;
+}

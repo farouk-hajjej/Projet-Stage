@@ -1,0 +1,160 @@
+<br>
+    <div class="card-header">
+      <h3 class="card-title" style="text-align: center">Gestion des évaluations</h3>
+      <br>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+
+      <div class="container"  >
+        <button  class="btn btn-outline-primary text-center "  data-bs-toggle="modal" data-bs-target="#add" >Ajouter une question <i class="fa fa-plus" aria-hidden="true"></i>
+        </button>
+        <!--  <input type="text" [(ngModel)]="searchInput.displayName">-->
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+          <tr>
+         <!--   <th scope="col">Id </th> -->
+            <th scope="col">CodeQuestion </th>
+            <th scope="col">Domaine</th>
+            <th scope="col">Catégorie</th>
+            <th scope="col">Mesure</th>
+            <th scope="col">Contenu </th>
+            <th scope="col">Recommandation</th>
+            <th scope="col"  >Type</th>
+            <th scope="col" colspan="7" >Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let l of listQuestions ">
+
+          <!--  <td>{{l.id}}</td> -->
+            <td>{{l.code}}</td>
+            <td>{{l.domain}}</td>
+            <td>{{l.categorie}}</td>
+            <td>{{l.mesure}}</td>
+            <td>{{l.contenu}}</td>
+            <td>{{l.recommandation}}</td>
+            <td>{{l.type}}</td>
+
+            <td >
+              <button class="btn btn-outline-danger" (click)="deleteQuestion(l.id)"  class="btn btn-danger" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i>
+              </button>
+            </td>
+            <td>
+              <button  class="btn btn-outline-primary " data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="dataId(l.id)" class="btn btn-primary" title="Modifier" ><i class="fa fa-pencil-square fa-lg" aria-hidden="true"></i>
+              </button>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: #00a8c6" >
+
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModelLabel">Modifier une question</h5>
+              <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal" aria-label="Close" >X</button>
+
+            </div>
+            <div class="modal-body" >
+              <div class="input-group row-cols-md-3" >
+                <span class="input-groupe-text "> Code Question</span>
+                <input type="text" class="form-control" [(ngModel)]="qs.code" >
+              </div>
+              <div class="input-group row-cols-md-3" >
+                <span class="input-groupe-text "> Domaine</span>
+                <input type="text" class="form-control" [(ngModel)]="qs.domain" >
+              </div>
+              <div class="input-group row-cols-md-3" >
+                <span class="input-groupe-text "> Catégorie </span>
+                <input type="text" class="form-control" [(ngModel)]="qs.categorie" >
+              </div>
+
+              <div class="input-group row-cols-md-3" >
+                <span class="input-groupe-text "> Mesure </span>
+                <input type="text" class="form-control" [(ngModel)]="qs.mesure" >
+              </div>
+              <div class="input-group row-cols-md-3" >
+                <span class="input-groupe-text "> Contenu </span>
+                <input type="text" class="form-control" [(ngModel)]="qs.contenu" >
+              </div>
+              <div class="input-group row-cols-md-3" >
+                <span class="input-groupe-text "> Recommandation </span>
+                <input type="text" class="form-control" [(ngModel)]="qs.recommandation" >
+              </div>
+              <div class="input-group row-cols-md-3" >
+                <span class="input-groupe-text "> Type </span>
+                <select  #type="ngModel" [(ngModel)]="qs.type" name="type" class="form-control"  required >
+                  <option selected value="Organisationnelle">Organisationnelle</option>
+                  <option value="Technique">Technique</option>
+                  <option value="Physique">Physique</option>
+                </select>
+              </div>
+              <button type="button" class="btn btn-outline-success"  data-bs-dismiss="modal" aria-label="Close" (click)="UpdateQuestion(qs,idQ)" > Update </button>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+      <div class="modal fade"  id="add" tabindex="-1" aria-labelledby="addLabel" aria-hidden="true" style="color: #00a8c6" >
+
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <h5 class="modal-title" id="addModal">Ajouter une question</h5>
+              <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal" aria-label="Close"  >X</button>
+
+            </div>
+            <div class="modal-body" >
+              <div class="input-group row-cols-md-3" >
+                <span class="input-groupe-text "> Code Question</span>
+                <input type="text" class="form-control" [(ngModel)]="qs.code" >
+              </div>
+              <div class="input-group row-cols-md-3" >
+                <span class="input-groupe-text "> Domaine</span>
+                <input type="text" class="form-control" [(ngModel)]="qs.domain" >
+              </div>
+              <div class="input-group row-cols-md-3" >
+                <span class="input-groupe-text "> Catégorie </span>
+                <input type="text" class="form-control" [(ngModel)]="qs.categorie" >
+              </div>
+
+              <div class="input-group row-cols-md-3" >
+                <span class="input-groupe-text "> Mesure </span>
+                <input type="text" class="form-control" [(ngModel)]="qs.mesure" >
+              </div>
+              <div class="input-group row-cols-md-3" >
+                <span class="input-groupe-text "> Contenu </span>
+                <input type="text" class="form-control" [(ngModel)]="qs.contenu" >
+              </div>
+              <div class="input-group row-cols-md-3" >
+                <span class="input-groupe-text "> Recommandation </span>
+                <input type="text" class="form-control" [(ngModel)]="qs.recommandation" >
+              </div>
+              <div class="input-group row-cols-md-3" >
+                <span class="input-groupe-text "> Type </span>
+                <select  #type="ngModel" [(ngModel)]="qs.type" name="type" class="form-control"  required >
+                  <option selected value="Organisationnelle">Organisationnelle</option>
+                  <option value="Technique">Technique</option>
+                  <option value="Physique">Physique</option>
+                </select>
+              </div>
+              <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" aria-label="Close"  (click)="addQuestion()"  > Ajouter </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

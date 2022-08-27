@@ -1,0 +1,177 @@
+<!--<a (click)="exportpdf()"> <img src="assets/images/icons/pdf.png" alt=""></a>-->
+<div class="app-main" id="main">
+  <!-- begin container-fluid -->
+  <div class="container-fluid">
+    <!-- begin row -->
+
+     <form  (click)="SearchUser(key.value)">
+      <div class="from-group row">
+        <div class="col-6 col-sm-3">
+          <input class="form-control ag-row-hover"  type="search"  #key="ngModel" ngModel
+                 name="key" placeholder="Search User" >
+        </div>
+
+        <div class="col-6 col-sm-3">
+          <button class="btn btn-primary" type="submit " >   <i class="fa fa-search" aria-hidden="true"></i>  </button>
+
+        </div>
+      </div>
+    </form>
+    <button class="action-edit"><i class="feather icon-download badge-light-info"(click)="goToExportFormat()"></i>
+      exporter
+    </button>
+
+
+<br>
+
+<div class="card-header">
+  <h3 class="card-title" style="text-align: center"> Gestion Utilisateur </h3>
+  <br>
+</div>
+  <!-- /.card-header -->
+<div class="card-body">
+
+  <div class="container"  >
+    <button  class="btn btn-outline-primary text-center "  data-bs-toggle="modal" data-bs-target="#add" >Ajouter Utilisateur <i class="fa fa-plus" aria-hidden="true"></i>
+    </button>
+    <!--  <input type="text" [(ngModel)]="searchInput.displayName">-->
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Id </th>
+          <th scope="col">Nom <i class="fa fa-user fa-lg" aria-hidden="true"></i></th>
+          <th scope="col">Email <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
+          </th>
+          <th scope="col">Activé</th>
+          <th scope="col">Date De Creation <i class="fa fa-calendar" aria-hidden="true"></i>
+          </th>
+          <th scope="col">Date De modification<i class="fa fa-calendar" aria-hidden="true"></i>
+          </th>
+          <th scope="col">Qr Code</th>
+          <th scope="col" colspan="6" >Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let l of listUser ">
+
+
+        <td>{{l.id}}</td>
+          <td>{{l.displayName}}</td>
+          <td>{{l.email}}</td>
+          <td>{{l.enabled}}</td>
+          <td>{{l.createdDate}}</td>
+          <td>{{l.modifiedDate}}</td>
+          <td class="col-md-2">
+            <ngx-qrcode [elementType]="elementType"  [value]="l.displayName" [width]="50"  background="pink"  [errorCorrectionLevel]="correctionLevel" ></ngx-qrcode>
+          </td>
+          <td >
+            <button class="btn btn-outline-danger" (click)="deleteUser(l.id)"  class="btn btn-danger" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i>
+
+            </button>
+          </td>
+          <td>
+            <button  class="btn btn-outline-primary " data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="dataId(l.id)" class="btn btn-primary" title="Modifier" ><i class="fa fa-pencil-square fa-lg" aria-hidden="true"></i>
+            </button>
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+
+
+
+    <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color: #00a8c6" >
+
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModelLabel">Modifier Un utilisateur</h5>
+            <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal" aria-label="Close" >X</button>
+
+          </div>
+          <div class="modal-body" >
+            <div class="input-group row-cols-md-3" >
+              <span class="input-groupe-text "> Nom & Prénom</span>
+              <input type="text" class="form-control" [(ngModel)]="us.displayName" >
+            </div>
+            <div class="input-group row-cols-md-3" >
+              <span class="input-groupe-text "> Adresse e-mail </span>
+              <input type="text" class="form-control" [(ngModel)]="us.email" >
+            </div>
+
+            <div class="input-group row-cols-md-3" >
+              <span class="input-groupe-text "> Activé </span>
+              <input type="text" class="form-control" [(ngModel)]="us.enabled" >
+            </div>
+            <div class="input-group row-cols-md-3" >
+              <span class="input-groupe-text "> Mot de Passe </span>
+              <input type="text" class="form-control" [(ngModel)]="us.password" >
+            </div>
+            <button type="button" class="btn btn-outline-success"  data-bs-dismiss="modal" aria-label="Close" (click)="UpdateUser(us,idU)" > Update </button>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+   <div class="modal fade"  id="add" tabindex="-1" aria-labelledby="addLabel" aria-hidden="true" style="color: #00a8c6" >
+
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h5 class="modal-title" id="addModal">Ajouter Un utilisateur</h5>
+            <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal" aria-label="Close"  >X</button>
+
+          </div>
+          <div class="modal-body" >
+            <div class="input-group row-cols-md-3" >
+              <span class="input-groupe-text "> Nom & Prénom </span>
+              <input type="text" class="form-control" [(ngModel)]="us.displayName" >
+            </div>
+            <div class="input-group row-cols-md-3" >
+              <span class="input-groupe-text "> Adresse e-mail </span>
+              <input type="text" class="form-control" [(ngModel)]="us.email" >
+            </div>
+            <div class="input-group row-cols-md-3" >
+              <span class="input-groupe-text "> activé </span>
+              <input type="number" class="form-control" [(ngModel)]="us.enabled" >
+            </div>
+            <div class="input-group row-cols-md-3" >
+              <span class="input-groupe-text "> Mot de Passe </span>
+              <input type="text" class="form-control" [(ngModel)]="us.password" >
+            </div>
+            <div class="input-group row-cols-md-3">
+              <span class="input-groupe-text "> Image </span>
+              <input  type="file"  (change)="onFileSelected($event)" multiple>
+              <img [src]="imgURL" height="100" width="150"  *ngIf="imgURL">
+            </div>
+
+
+
+            <!--  <img [src]="imgURL" height="100" width="150"  *ngIf="imgURL"> -->
+
+
+
+          <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" aria-label="Close"  (click)="addUser()"  > Ajouter </button>
+
+
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+</div>
+</div>
+</div>
