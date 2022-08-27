@@ -1,8 +1,38 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {HomeComponent} from './Back-End/home/home.component';
+import {LoginComponent} from './login/login.component';
+import {RegisterComponent} from './register/register.component';
+import {UserComponent} from './UserSpace/user/user.component';
+import {QuestionComponent} from './questionSpace/question/question.component';
+import {ExportUserComponent} from './UserSpace/export-user/export-user.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path: 'home',
+    component: HomeComponent,
+    children: [
+      {
+        path: 'Administration-management',
+        children: [
+          {path: 'User', component: UserComponent},
+          {path: 'users/export', component: ExportUserComponent},
+        ]
+      },
+      {
+        path: 'Evaluation-management',
+        children: [
+          {path: 'Question', component: QuestionComponent},
+        ]
+      },
+    ]
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
