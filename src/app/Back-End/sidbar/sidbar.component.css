@@ -1,7 +1,10 @@
 .logo{
   background:url('../../../assets/front/img/logo/logo.png')  no-repeat;
-  display: block;
-  height:75px;width:300px;
-  margin-right: auto;
-  margin-left: initial;
+  width:100%;
+  text-align:right;
+  position:absolute;
+  top:10px;
+  height:60px;
+  min-width:800px;
+  max-width:1024px;
 }
