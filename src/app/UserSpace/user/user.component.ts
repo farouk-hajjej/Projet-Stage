@@ -68,7 +68,6 @@ export class UserComponent implements OnInit {
         this.getListUser();
       });
     const formData = new FormData();
-    // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.imagePath.length; i++) {
       const element = this.imagePath[i];
 
@@ -105,7 +104,6 @@ export class UserComponent implements OnInit {
     const file: FileList = event?.target?.files;
 
 
-    // tslint:disable-next-line:prefer-const
     var reader = new FileReader();
 
     this.imagePath = file;

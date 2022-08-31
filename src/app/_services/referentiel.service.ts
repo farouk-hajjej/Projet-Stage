@@ -16,6 +16,6 @@ export class ReferentielService {
   }
   deleteReferentiel(i: number): Observable<any> {
 
-    return this.http.get<number>('http://localhost:8090/Referentiel//deleteReferentielById/' + i);
+    return this.http.get<number>('http://localhost:8090/Referentiel/deleteReferentielById/' + i);
   }
 }

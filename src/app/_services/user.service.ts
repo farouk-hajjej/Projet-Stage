@@ -6,10 +6,8 @@ import {User} from '../model/User';
 
 
 const httpOptions = {
-  // tslint:disable-next-line:indent
-		  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  // tslint:disable-next-line:indent
-		};
+headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 
 @Injectable({

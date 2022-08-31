@@ -23,6 +23,8 @@ import { ReferentielComponent } from './referentielSpace/referentiel/referentiel
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +50,8 @@ import { ReferentielComponent } from './referentielSpace/referentiel/referentiel
     HttpClientModule,
     BrowserAnimationsModule,
     OrderModule,
-    FilterPipeModule
+    FilterPipeModule,
+
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
