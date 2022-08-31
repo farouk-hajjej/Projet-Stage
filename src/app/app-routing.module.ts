@@ -6,6 +6,7 @@ import {RegisterComponent} from './register/register.component';
 import {UserComponent} from './UserSpace/user/user.component';
 import {QuestionComponent} from './questionSpace/question/question.component';
 import {ExportUserComponent} from './UserSpace/export-user/export-user.component';
+import {ReferentielComponent} from './referentielSpace/referentiel/referentiel.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,12 @@ const routes: Routes = [
         path: 'Evaluation-management',
         children: [
           {path: 'Question', component: QuestionComponent},
+        ]
+      },
+      {
+        path: 'Referentiel-management',
+        children: [
+          {path: 'Referentiel', component: ReferentielComponent},
         ]
       },
     ]

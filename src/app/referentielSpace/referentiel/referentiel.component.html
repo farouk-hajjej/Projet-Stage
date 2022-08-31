@@ -1,0 +1,45 @@
+<br>
+<div class="card-header">
+  <h3 class="card-title" style="text-align: center"> Référentiel ISO 27002</h3>
+  <br>
+</div>
+<div class="card-body">
+
+  <div class="container"  >
+   <!-- <button  class="btn btn-outline-primary text-center "  data-bs-toggle="modal" data-bs-target="#add" >Ajouter Référentiel <i class="fa fa-plus" aria-hidden="true"></i>
+    </button>
+    -->
+    <!--  <input type="text" [(ngModel)]="searchInput.displayName">-->
+    <table id="example1" class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <!--   <th scope="col">Id </th> -->
+        <th scope="col">Code </th>
+        <th scope="col">Intitulé</th>
+      <!--  <th scope="col" colspan="2" >Actions</th>-->
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let l of listReferentiel ">
+
+        <!--  <td>{{l.id}}</td> -->
+        <td>{{l.code}}</td>
+        <td>{{l.intitule}}</td>
+<!--
+        <td >
+          <button class="btn btn-outline-danger" (click)="deleteReferentiel(l.idRef)"  class="btn btn-danger" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i>
+          </button>
+        </td>
+        <td>
+          <button  class="btn btn-outline-primary " data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="dataId(l.idRef)" class="btn btn-primary" title="Modifier" ><i class="fa fa-pencil-square fa-lg" aria-hidden="true"></i>
+          </button>
+        </td>
+        -->
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</div>
+

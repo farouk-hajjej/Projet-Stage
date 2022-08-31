@@ -50,7 +50,7 @@ export class QuestionComponent implements OnInit {
   deleteQuestion(i: number) {
     this.questionService.deleteQuestion(i)
       .subscribe(response => {
-        this.listQuestions = this.listQuestions.filter(item => item.id !== i);
+        this.listQuestions = this.listQuestions.filter(item => item.idQes !== i);
       });
   }
 
@@ -62,6 +62,6 @@ export class QuestionComponent implements OnInit {
   dataId(i: number) {
     console.log(i);
     this.idQ = i;
-    this.qs = this.listQuestions.filter(item => item.id === i)[0];
+    this.qs = this.listQuestions.filter(item => item.idQes === i)[0];
   }
 }

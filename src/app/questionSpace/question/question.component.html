@@ -1,6 +1,8 @@
 <br>
     <div class="card-header">
-      <h3 class="card-title" style="text-align: center">Gestion des évaluations</h3>
+      <h3 class="card-title" style="text-align: center"> Mesure du niveau de
+        maturité de la sécurité des systèmes
+        d'informations nationaux</h3>
       <br>
     </div>
     <!-- /.card-header -->
@@ -37,11 +39,11 @@
             <td>{{l.type}}</td>
 
             <td >
-              <button class="btn btn-outline-danger" (click)="deleteQuestion(l.id)"  class="btn btn-danger" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i>
+              <button class="btn btn-outline-danger" (click)="deleteQuestion(l.idQes)"  class="btn btn-danger" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i>
               </button>
             </td>
             <td>
-              <button  class="btn btn-outline-primary " data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="dataId(l.id)" class="btn btn-primary" title="Modifier" ><i class="fa fa-pencil-square fa-lg" aria-hidden="true"></i>
+              <button  class="btn btn-outline-primary " data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="dataId(l.idQes)" class="btn btn-primary" title="Modifier" ><i class="fa fa-pencil-square fa-lg" aria-hidden="true"></i>
               </button>
             </td>
           </tr>

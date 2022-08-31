@@ -1,5 +1,5 @@
 export class Question {
-id!: number;
+idQes!: number;
 code: string;
 domain: string;
 categorie: string;

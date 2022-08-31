@@ -19,6 +19,7 @@ import {OrderModule} from 'ngx-order-pipe';
 import {FilterPipeModule} from 'ngx-filter-pipe';
 import { QuestionComponent } from './questionSpace/question/question.component';
 import { ExportUserComponent } from './UserSpace/export-user/export-user.component';
+import { ReferentielComponent } from './referentielSpace/referentiel/referentiel.component';
 
 
 
@@ -36,6 +37,7 @@ import { ExportUserComponent } from './UserSpace/export-user/export-user.compone
     UserComponent,
     QuestionComponent,
     ExportUserComponent,
+    ReferentielComponent,
 
   ],
   imports: [
