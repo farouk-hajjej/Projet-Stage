@@ -23,7 +23,7 @@ export class QuestionService {
     return this.http.post<User>('http://localhost:8090/Question/addQuestion', q);
   }
 
-  updateUser(q: Question, i: number): Observable<any>
+  updateQuestion(q: Question, i: number): Observable<any>
   {
     return this.http.put<any>
     ('http://localhost:8090/Question/updateQuestionById/' + i, q);

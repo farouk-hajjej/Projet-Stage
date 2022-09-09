@@ -1,4 +1,28 @@
-<br>
+<div class="app-main" id="main">
+  <!-- begin container-fluid -->
+  <div class="container-fluid">
+    <!-- begin row -->
+
+    <form  (click)="SearchQuestion(key.value)">
+      <div class="from-group row">
+        <div class="col-6 col-sm-3">
+          <input class="form-control ag-row-hover"  type="search"  #key="ngModel" ngModel
+                 name="key" placeholder="filtrer par code" >
+        </div>
+
+        <div class="col-6 col-sm-3">
+          <button class="btn btn-primary" type="submit " >   <i class="fa fa-search" aria-hidden="true"></i>  </button>
+
+        </div>
+      </div>
+    </form>
+    <!--
+    <button class="action-edit"><i class="feather icon-download badge-light-info"(click)="goToExportFormat()"></i>
+      exporter
+    </button>
+    -->
+
+    <br>
     <div class="card-header">
       <h3 class="card-title" style="text-align: center"> Mesure du niveau de
         maturité de la sécurité des systèmes

@@ -7,6 +7,8 @@ import {UserComponent} from './UserSpace/user/user.component';
 import {QuestionComponent} from './questionSpace/question/question.component';
 import {ExportUserComponent} from './UserSpace/export-user/export-user.component';
 import {ReferentielComponent} from './referentielSpace/referentiel/referentiel.component';
+import {DomainComponent} from './referentielSpace/domain/domain.component';
+import {CategorieComponent} from './referentielSpace/categorie/categorie.component';
 
 
 const routes: Routes = [
@@ -35,6 +37,8 @@ const routes: Routes = [
         path: 'Referentiel-management',
         children: [
           {path: 'Referentiel', component: ReferentielComponent},
+          {path: 'Domaine', component: DomainComponent},
+          {path: 'Categorie', component: CategorieComponent},
         ]
       },
     ]

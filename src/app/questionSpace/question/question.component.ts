@@ -40,7 +40,7 @@ export class QuestionComponent implements OnInit {
 
   UpdateQuestion(q: Question, id: number) {
 
-    this.questionService.updateUser(q, id).subscribe(
+    this.questionService.updateQuestion(q, id).subscribe(
       data => {
         console.log(data);
         this.getListQuestion();
@@ -63,5 +63,20 @@ export class QuestionComponent implements OnInit {
     console.log(i);
     this.idQ = i;
     this.qs = this.listQuestions.filter(item => item.idQes === i)[0];
+  }
+
+ public SearchQuestion(key: any): void {
+    console.log(key);
+    const results: any[] = [];
+    for (const s of this.listQuestions) {
+      if (s.code.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(s);
+      }
+    }
+    this.listQuestions = results;
+    if (!key) {
+      this.getListQuestion();
+    }
+
   }
 }
