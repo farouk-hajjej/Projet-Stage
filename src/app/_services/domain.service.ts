@@ -16,9 +16,9 @@ export class DomainService {
   }
   addDomain(d: Domain): Observable<Domain>
   {
-    const headers = { 'content-type': 'application/json'}
+    const headers = { 'content-type': 'application/json'};
     const body = JSON.stringify(d);
-    console.log(body)
+    console.log(body);
     return this.http.post<Domain>('http://localhost:8090/Domaine/addDomain', d);
   }
 

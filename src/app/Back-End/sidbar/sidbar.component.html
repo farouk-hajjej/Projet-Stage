@@ -45,9 +45,16 @@
           </li>
 
         </ul>
-      </li>
-      <li><a [routerLink]="['/home/Evaluation-management/Question']"><i class="feather icon-check-square"></i><span class="menu-title" data-i18n="List"> Evaluation </span></a>
-      </li>
+        <li class=" nav-item"><a [routerLink]="['/home/Evaluation-management/QuestionWelcome']"><i class="feather icon-check-square"></i><span class="menu-title" data-i18n="List"> Evaluation </span><span class="badge badge badge-warning badge-pill float-right mr-2"></span></a>
+          <ul class="menu-content">
+           <!--
+            <li><a [routerLink]="['/home/Evaluation-management/Question']"><i class="feather icon-check-square"></i><span class="menu-title" data-i18n="Todo"> Poser votre Question </span></a>
+            </li>
+            -->
+
+          </ul>
+        </li>
+
         <li class=" nav-item"><a [routerLink]="['/home/Referentiel-management/Referentiel']"><i class="feather icon-list"></i><span class="menu-title" data-i18n="List"> Référentiel </span><span class="badge badge badge-warning badge-pill float-right mr-2">3</span></a>
           <ul class="menu-content">
             <li><a [routerLink]="['/home/Referentiel-management/Categorie']"><i class="feather icon-check-square"></i><span class="menu-title" data-i18n="Todo">  Ajouter une Catégorie </span></a>

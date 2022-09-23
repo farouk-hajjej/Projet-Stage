@@ -8,7 +8,7 @@ import {SidbarComponent} from './Back-End/sidbar/sidbar.component';
 import {NavbarComponent} from './Back-End/navbar/navbar.component';
 import {FooterComponent} from './Back-End/footer/footer.component';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {authInterceptorProviders} from './_helpers/auth.interceptor';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
@@ -22,6 +22,7 @@ import { ExportUserComponent } from './UserSpace/export-user/export-user.compone
 import { ReferentielComponent } from './referentielSpace/referentiel/referentiel.component';
 import { DomainComponent } from './referentielSpace/domain/domain.component';
 import {CategorieComponent} from './referentielSpace/categorie/categorie.component';
+import { WelcomeComponent } from './questionSpace/welcome/welcome.component';
 
 
 
@@ -44,6 +45,7 @@ import {CategorieComponent} from './referentielSpace/categorie/categorie.compone
     ReferentielComponent,
     DomainComponent,
     CategorieComponent,
+    WelcomeComponent,
 
   ],
   imports: [
@@ -55,7 +57,7 @@ import {CategorieComponent} from './referentielSpace/categorie/categorie.compone
     BrowserAnimationsModule,
     OrderModule,
     FilterPipeModule,
-
+    ReactiveFormsModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

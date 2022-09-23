@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {QuestionService} from '../../_services/question.service';
 import {Question} from '../../model/Question';
 import {User} from '../../model/User';
@@ -12,13 +12,16 @@ import {ShereService} from '../../_services/shared/shere.service';
 export class QuestionComponent implements OnInit {
 
   constructor(private questionService: QuestionService, private service: ShereService) { }
+  @ViewChild('name') nameKey!: ElementRef;
   @Input() qs: Question = new Question();
   question = new Question();
   listQuestions: Question[] = [];
   idQ: number;
+  public name = '';
 
   ngOnInit(): void {
     console.log(this.idQ);
+    this.name = localStorage.getItem('name')!;
     this.getListQuestion();
   }
 

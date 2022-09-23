@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { UserService } from '../_services/user.service';
 import { TokenStorageService } from '../_services/token-storage.service';
@@ -12,6 +12,7 @@ import { AppConstants } from '../common/app.constants';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  @ViewChild('username') nameKey!: ElementRef;
 
   form: any = {};
   isLoggedIn = false;
@@ -53,6 +54,8 @@ this.isLoginFailed = true;
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.login(data.user);
+        localStorage.setItem('username', this.nameKey.nativeElement.value);
+
       },
       err => {
         this.errorMessage = err.error.message;

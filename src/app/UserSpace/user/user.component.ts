@@ -26,6 +26,12 @@ export class UserComponent implements OnInit {
   public imagePath: FileList;
   key: any;
   imgURL: any;
+ // page: number = 1; // 0 1 2 3
+  // size: number = 2;
+//  numElement: number = 5;
+  message: string;
+
+
   searchInput = {displayName: '', email: ''};
 
   ngOnInit(): void {
@@ -66,6 +72,9 @@ export class UserComponent implements OnInit {
     this.userService.addUser(this.us).subscribe(
       data => {
         this.getListUser();
+        this.message = `un nouvel utilisateur est ajouté avec succès`;
+        this.showMessage();
+
       });
     const formData = new FormData();
     for (let i = 0; i < this.imagePath.length; i++) {
@@ -84,6 +93,8 @@ export class UserComponent implements OnInit {
       data => {
         console.log(data);
         this.getListUser();
+        this.message = `L'utilisateur d'id:${id} à été mis à jour avec succès`;
+        this.showMessage();
       });
   }
 
@@ -91,9 +102,15 @@ export class UserComponent implements OnInit {
     this.userService.deleteUser(i)
       .subscribe(response => {
         this.listUser = this.listUser.filter(item => item.id !== i);
+        this.message = `L'utilisateur d'id: ${i} est supprimé!!`;
+        this.showMessage();
       });
   }
-
+  showMessage(){
+    setTimeout(() => {
+      this.message = '';
+    }, 3000);
+  }
 
   getid() {
     return this.service.getDate();
@@ -104,7 +121,7 @@ export class UserComponent implements OnInit {
     const file: FileList = event?.target?.files;
 
 
-    var reader = new FileReader();
+    let reader = new FileReader();
 
     this.imagePath = file;
 
@@ -144,6 +161,9 @@ export class UserComponent implements OnInit {
         console.log(data);
       }
     );
+  }
+  done() {
+    this.getListUser();
   }
 
   exportpdf() {

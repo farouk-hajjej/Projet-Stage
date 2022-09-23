@@ -9,6 +9,7 @@ import {ExportUserComponent} from './UserSpace/export-user/export-user.component
 import {ReferentielComponent} from './referentielSpace/referentiel/referentiel.component';
 import {DomainComponent} from './referentielSpace/domain/domain.component';
 import {CategorieComponent} from './referentielSpace/categorie/categorie.component';
+import {WelcomeComponent} from './questionSpace/welcome/welcome.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
         path: 'Evaluation-management',
         children: [
           {path: 'Question', component: QuestionComponent},
+          { path: 'QuestionWelcome', component: WelcomeComponent  },
         ]
       },
       {

@@ -1,4 +1,6 @@
 <!--<a (click)="exportpdf()"> <img src="assets/images/icons/pdf.png" alt=""></a>-->
+<div class="alert alert-success" *ngIf="message">{{message}}</div>
+
 <div class="app-main" id="main">
   <!-- begin container-fluid -->
   <div class="container-fluid">
@@ -38,7 +40,8 @@
     </button>
 
     <!--  <input type="text" [(ngModel)]="searchInput.displayName">-->
-      <table id="example1" class="table table-bordered table-striped">
+
+    <table id="example1" class="table table-bordered table-striped">
         <thead>
         <tr>
           <th scope="col">Id </th>
@@ -51,11 +54,11 @@
           <th scope="col">Date De modification<i class="fa fa-calendar" aria-hidden="true"></i>
           </th>
           <th scope="col">Qr Code</th>
-          <th scope="col" colspan="6" >Actions</th>
+          <th scope="col" colspan="2" >Actions</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let l of listUser ">
+        <tr *ngFor="let l of listUser  " align="center">
 
 
         <td>{{l.id}}</td>
@@ -76,11 +79,24 @@
             <button  class="btn btn-outline-primary " data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="dataId(l.id)" class="btn btn-primary" title="Modifier" ><i class="fa fa-pencil-square fa-lg" aria-hidden="true"></i>
             </button>
           </td>
+
         </tr>
 
         </tbody>
       </table>
-
+    <!--
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-9" style="padding-left: 30%">
+          <ngb-pagination [(page)]="page"
+                          [pageSize]="size"
+                          [collectionSize]="numElement"
+                          (pageChange)="done()">
+          </ngb-pagination>
+        </div>
+      </div>
+    </div>
+-->
     </div>
 
 
@@ -132,7 +148,7 @@
         <div class="modal-content">
 
           <div class="modal-header">
-            <h5 class="modal-title" id="addModal">Ajouter Un utilisateur</h5>
+             <h5 class="modal-title" id="addModal">Ajouter Un utilisateur</h5>
             <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal" aria-label="Close"  >X</button>
 
           </div>
@@ -166,6 +182,7 @@
 
 
           <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" aria-label="Close"  (click)="addUser()"  > Ajouter </button>
+
 
 
         </div>

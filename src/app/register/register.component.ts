@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import {Router} from '@angular/router';
 
@@ -8,6 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  @ViewChild('username') nameKey!: ElementRef;
 
   form: any = {};
   isSuccessful = false;
@@ -26,6 +27,8 @@ export class RegisterComponent implements OnInit {
         this.isSuccessful = true;
         window.location.href = '../home';
         this.isSignUpFailed = false;
+        localStorage.setItem('username', this.nameKey.nativeElement.value);
+
       },
       err => {
         this.errorMessage = err.error.message;
