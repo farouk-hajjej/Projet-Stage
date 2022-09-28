@@ -20,7 +20,7 @@ export class ReferentielService {
     const headers = { 'content-type': 'application/json'};
     const body = JSON.stringify(r);
     console.log(body);
-    return this.http.post<Referentiel>('http://localhost:8090/Referentiel/AddReferentielAndAssignToOthers/' + idC + '/' + idD + '/' + idM + '/' + idQ , r);
+    return this.http.post<Referentiel>('http://localhost:8090/Referentiel/AddReferentielAndAssignToOthers/' + idD + '/'  + idQ , r);
 
   }
   getListReferentiel(): Observable<Referentiel[]> {
