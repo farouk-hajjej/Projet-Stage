@@ -133,27 +133,12 @@
           <span class="input-groupe-text ">Intitule  </span>
           <input type="text" class="form-control" [(ngModel)]="re.intitule" >
         </div>
-        <div class="input-group row-cols-md-3" >
-          <span class="input-groupe-text "> Code Catégorie </span>
-          <select [(ngModel)]= "idC" name="id" class="form-control " name="categorie" id="categorie" >
 
-            <option *ngFor="let c of listCat "  value="{{c.idCat}} "> {{c.codeCategorie}} </option>
-
-          </select>
-        </div>
         <div class="input-group row-cols-md-3" >
           <span class="input-groupe-text "> Code Domain </span>
           <select [(ngModel)]= "idD" name="id" class="form-control " name="domain" id="domain" >
 
             <option *ngFor="let d of listDom "  value="{{d.idDom}} "> {{d.codeDomaine}} </option>
-
-          </select>
-        </div>
-        <div class="input-group row-cols-md-3" >
-          <span class="input-groupe-text "> Code Mesure </span>
-          <select [(ngModel)]= "idM" name="id" class="form-control " name="mesure" id="mesure" >
-
-            <option *ngFor="let m of listMes "  value="{{m.idMes}} "> {{m.codeMesure}} </option>
 
           </select>
         </div>
