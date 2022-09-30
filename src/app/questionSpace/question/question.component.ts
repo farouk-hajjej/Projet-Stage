@@ -51,6 +51,7 @@ export class QuestionComponent implements OnInit {
   }
 
   deleteQuestion(i: number) {
+
     this.questionService.deleteQuestion(i)
       .subscribe(response => {
         this.listQuestions = this.listQuestions.filter(item => item.idQes !== i);

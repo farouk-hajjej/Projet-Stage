@@ -71,9 +71,20 @@
             <ngx-qrcode [elementType]="elementType"  [value]="l.displayName" [width]="50"  background="pink"  [errorCorrectionLevel]="correctionLevel" ></ngx-qrcode>
           </td>
           <td >
-            <button class="btn btn-outline-danger" (click)="deleteUser(l.id)"  class="btn btn-danger" title="Supprimer"><i class="fa fa-trash-o" aria-hidden="true"></i>
 
-            </button>
+              <button
+                class="btn btn-outline-danger"
+                mwlConfirmationPopover
+                [popoverTitle]="popoverTitle"
+                [popoverMessage]="popoverMessage"
+                placement="left"
+                (confirm)="deleteUser(idU) "
+                (cancel)="cancelClicked = true"
+                (click)="deleteUser(l.id)"  class="btn btn-danger" title="Supprimer"
+              ><i class="fa fa-trash-o" aria-hidden="true"></i>
+
+              </button>
+
           </td>
           <td>
             <button  class="btn btn-outline-primary " data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="dataId(l.id)" class="btn btn-primary" title="Modifier" ><i class="fa fa-pencil-square fa-lg" aria-hidden="true"></i>

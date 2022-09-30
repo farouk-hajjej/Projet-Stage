@@ -27,6 +27,7 @@
     "@ng-bootstrap/ng-bootstrap": "^12.1.2",
     "@popperjs/core": "^2.10.2",
     "@techiediaries/ngx-qrcode": "^9.1.0",
+    "angular-confirmation-popover": "^6.0.0",
     "angular-material": "^1.2.5",
     "angular2-notifications": "^12.0.0",
     "angular2-qrcode": "^2.0.3",

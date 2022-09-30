@@ -23,6 +23,7 @@ import { ReferentielComponent } from './referentielSpace/referentiel/referentiel
 import { DomainComponent } from './referentielSpace/domain/domain.component';
 import {CategorieComponent} from './referentielSpace/categorie/categorie.component';
 import { WelcomeComponent } from './questionSpace/welcome/welcome.component';
+import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
 
 
 
@@ -57,7 +58,10 @@ import { WelcomeComponent } from './questionSpace/welcome/welcome.component';
     BrowserAnimationsModule,
     OrderModule,
     FilterPipeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger', // set defaults here
+    }),
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

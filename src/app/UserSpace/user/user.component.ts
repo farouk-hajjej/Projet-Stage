@@ -30,6 +30,10 @@ export class UserComponent implements OnInit {
   // size: number = 2;
 //  numElement: number = 5;
   message: string;
+  popoverTitle = 'Popover title';
+  popoverMessage = 'Popover description';
+  confirmClicked = false;
+  cancelClicked = false;
 
 
   searchInput = {displayName: '', email: ''};
